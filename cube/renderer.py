@@ -25,16 +25,18 @@ class SDLRenderer(Renderer):
         sdl2.ext.init()
 
         # sdl2.mouse.SDL_ShowCursor(0)
-        self.window = sdl2.ext.Window(window_title, size=(width, height))
-        # self.surface = self.window.get_surface()
-        # sdl2.ext.fill(self.surface, 0)
+        flags = 0
+        # flags = sdl2.SDL_RENDERER_SOFTWARE
+        self.window = sdl2.ext.Window(window_title, flags=flags, size=(width, height))
         self.window.show()
+        # self.surface = self.window.get_surface()
         self.context = sdl2.ext.Renderer(self.window)
 
         self.delay_interval = delay_interval
 
     def draw_hud(self, hud):
-        pixels = sdl2.ext.pixels2d(self.surface)
+        surface = self.surface
+        pixels = sdl2.ext.pixels2d(surface)
         color = int( 127*(math.sin(self.frame)+1)) << 16
         h, w = pixels.shape
         pixels[0:10, :] = color
@@ -56,7 +58,8 @@ class SDLRenderer(Renderer):
         sdlgfx_green = 0xff00ff00  # 0xff << 16 + 0xff  # RGBA
         # sdlgfx_green = 0xffffffff  # 0xff << 16 + 0xff  # RGBA
         for name, obj in scene.objects.items():
-            points = camera_matrix * -T * -R * obj.transformed_vertices
+            obj.update()
+            points = camera_matrix * -scene.main_camera.T * -scene.main_camera.R * obj.transformed_vertices
             # perspective
             points = points[:2, :] / points[2, :]
             logger.info(f"rendering {name}")
@@ -66,11 +69,6 @@ class SDLRenderer(Renderer):
                 logger.info(f"rendering {(x1,y1)}")
                 sdlgfx.filledCircleColor(context.sdlrenderer, x1, y1, 3, sdlgfx_green)
         context.present()
-        # x = 100
-        # y = 100
-        # w = 200
-        # h = 200
-        # sdl2.ext.fill(surface, green, (x, y, w, h))
         # self.draw_hud(hud)
         self.window.refresh()
 

@@ -1,4 +1,6 @@
+from datetime import datetime
 from math import sin, cos
+
 import numpy as np
 
 
@@ -96,10 +98,34 @@ class Object3D:
     vertices = None
     edges = None
 
-    def __init__(self, position=None, scale=None, rotation=None):
-        self.position = translation_matrix(position)
+    def __init__(self, position=None, angular_velocity=None, velocity=None, scale=None, rotation=None):
+        self.position = position
         self.scale = scale_matrix(scale)
-        self.rotation = rotation_matrix(rotation)
+        self.rotation = rotation
+        self.update_time = datetime.now()
+        self.velocity = velocity
+        self.angular_velocity = angular_velocity
+
+    def update(self):
+        self.update_physics()
+
+    def update_physics(self):
+        if not self.velocity:
+            return
+        t1 = datetime.now()
+        time_dot_delta_time = (t1 - self.update_time).total_seconds()
+        self.update_time = t1
+        self.position += self.velocity * time_dot_delta_time
+        # FIXME: implement angular velocity
+        # self.rotation += self.angular_velocity * time_dot_delta_time
+
+    @property
+    def T(self):
+        return translation_matrix(self.position)
+
+    @property
+    def R(self):
+        return rotation_matrix(self.rotation)
 
 
 class Camera(Object3D):
@@ -128,4 +154,4 @@ class Cube(Object3D):
 
     @property
     def transformed_vertices(self):
-        return self.position * self.rotation * self.scale * self.vertices
+        return self.T * self.R * self.scale * self.vertices
