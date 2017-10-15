@@ -1,5 +1,7 @@
 from datetime import datetime
 
+import numpy as np
+
 from transformations import rotation_matrix, scale_matrix, translation_matrix
 from vector import Vector3
 
@@ -29,6 +31,9 @@ class Object3D:
         # FIXME: implement angular velocity
         # self.rotation += self.angular_velocity * time_dot_delta_time
 
+    def to_homogenous_coords(self, vertices):
+        return np.hstack([vertices, np.matrix(np.ones(vertices.shape[0])).T]).T
+
     @property
     def T(self):
         return translation_matrix(self.position)
@@ -43,6 +48,5 @@ class Object3D:
 
     @property
     def transformed_vertices(self):
-        return self.vertices
-        # return self.T * self.R * self.vertices
-        # return self.T * self.R * self.S * self.vertices
+        return self.T * self.R * self.S * self.vertices
+

@@ -17,7 +17,7 @@ class Renderer():
 
 
 class SDLRenderer(Renderer):
-    def __init__(self, width=800, height=600, f=800, window_title="CUBE", delay_interval=10):
+    def __init__(self, width=800, height=600, f=2000, window_title="CUBE", delay_interval=10):
         self.width = width
         self.height = height
         self.f = f
@@ -31,10 +31,22 @@ class SDLRenderer(Renderer):
         self.window.show()
         # self.surface = self.window.get_surface()
         self.context = sdl2.ext.Renderer(self.window)
+        self.context.clear(0)
+        self.context.present()
+        self.context.clear(0)
 
         self.delay_interval = delay_interval
 
-    def draw_axes(self, length=1, thickness=3):
+    def screenshot(self):
+        pass
+        # can we do this?
+        #  https://stackoverflow.com/questions/22315980/sdl2-c-taking-a-screenshot
+        # SDL_Surface *sshot = SDL_CreateRGBSurface(0, w, h, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
+        # SDL_RenderReadPixels(renderer, NULL, SDL_PIXELFORMAT_ARGB8888, sshot->pixels, sshot->pitch);
+        # SDL_SaveBMP(sshot, "screenshot.bmp");
+        # SDL_FreeSurface(sshot);
+
+    def draw_axes(self, scene, length=1):
 
         axes = np.matrix([
             [0, 1, 0, 0],
@@ -45,20 +57,20 @@ class SDLRenderer(Renderer):
 
         axes[:3, :] *= length
 
-        points = [tuple(x) for x in self.vertices_to_screen(self.M * axes).T.A]
+        points = [tuple(x) for x in self.vertices_to_screen(scene, axes).T.A]
+
         if len(points) < 4:
             return
-        pairs = (
-            ((255, 0, 0), points[0], points[1]),
-            ((0, 255, 0), points[0], points[2]),
-            ((0, 0, 255), points[0], points[3]),
+
+        # each axis is (color, endpoints)
+        lines = (
+            (0xff0000ff, points[0], points[1]),
+            (0xff00ff00, points[0], points[2]),
+            (0xffff0000, points[0], points[3]),
         )
 
-        for color, p1, p2 in pairs:
-            try:
-                cv2.line(target, p1, p2, color, thickness, cv2.LINE_AA)
-            except OverflowError as e:
-                pass
+        for color, p1, p2 in lines:
+            sdlgfx.aalineColor(self.context.sdlrenderer, p1[0], p1[1], p2[0], p2[1], color)
 
     def draw_hud(self, hud):
         surface = self.surface
@@ -75,26 +87,25 @@ class SDLRenderer(Renderer):
         transformed_vertices = scene.main_camera.R.I * scene.main_camera.T.I * vertices
         # mask = (vertices[2, :] > 0).A[0]
         # forward_vertices = vertices[:, mask]
-        points = camera_matrix * transformed_vertices  # forward_vertices breaks lines
+        points = camera_matrix * transformed_vertices
 
         # perspective
         points = points[:2, :] / points[2, :]
 
-        points_int = points.astype(np.uint8)
+        points_int = points.astype(np.int32)
         return points_int
 
-    def render(self, hud, scene):
+    def render(self, hud, scene, clear=True):
 
         self.frame += 1
         context = self.context
-        context.clear(0)
+        if clear:
+            context.clear(0)
         sdlgfx_green = 0xff00ff00  # 0xff << 16 + 0xff  # RGBA
-        # sdlgfx_green = 0xffffffff  # 0xff << 16 + 0xff  # RGBA
         for name, obj in scene.objects.items():
             obj.update()
             points = self.vertices_to_screen(scene, obj.transformed_vertices)
             logger.debug(f"rendering {name}")
-
             n_points = points.shape[1]
             for i in range(n_points):
                 x1 = points[0, i]
@@ -111,11 +122,9 @@ class SDLRenderer(Renderer):
 
                 sdlgfx.aalineColor(context.sdlrenderer, x1, y1, x2, y2, sdlgfx_green)
 
-        self.draw_test_grid(context)
+        self.draw_axes(scene)
         context.present()
-        # self.draw_hud(hud)
         self.window.refresh()
-
 
     def draw_test_grid(self, context):
         c = 0xffffffff
@@ -124,24 +133,20 @@ class SDLRenderer(Renderer):
         #         sdlgfx.filledCircleColor(context.sdlrenderer, x, y, 1, c)
         sdlgfx.filledCircleColor(context.sdlrenderer, 400, 300, 4, c)
 
-
     def camera_matrix(self):
         cx = self.width / 2
         cy = self.height / 2
         f = self.f
 
         return np.matrix([
-            [f,  0, cx, 0],
-            [0, f, cy, 0],
-            [0,  0,  1, 0]
+            [f, 0, cx, 0],
+            [0, -f, cy, 0],
+            [0, 0, 1, 0]
         ], dtype=np.float64)
-
 
     def delay(self):
         sdl2.SDL_Delay(self.delay_interval)
 
-
     def quit(self):
-
         sdl2.ext.quit()
 
