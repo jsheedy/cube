@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 
 scene = Scene()
 
-camera = Camera(position=Vector3(12,15,-20))
+camera = Camera(position=Vector3(0,0,-20))
 camera.look_at(Vector3(0, 0, 0))
 scene.add_camera("main camera", camera)
 
@@ -25,6 +25,7 @@ scene.add_camera("main camera", camera)
 #             cube = Cube(position=Vector3(2*i, j, k))
 #             scene.add_object(f"cube{i}-{j}-{k}", cube)
 
+# cube = Cube(position=Vector3(0, 0, 0), scale=Vector3(1,1,1))
 cube = Cube(position=Vector3(2, 2, 0), scale=Vector3(1,1,1))
 tetrahedron = Tetrahedron(position=Vector3(2,-2, 0))
 octahedron = Octahedron(position=Vector3(-2, -2, 0))
@@ -38,25 +39,27 @@ scene.add_object(f"dodecahedron", dodecahedron)
 hud = HUD()
 renderer = SDLRenderer(width=1350, height=770, delay_interval=50)
 
-
 for t in itertools.count():
     renderer.render(hud, scene, clear=True)
     renderer.delay()
 
     look_x = math.sin(t/20)
     look_y = math.cos(t/20)
-    look_z = math.sin(t/20)
+    look_z = 0  # math.cos(t/20)
 
-    target = Vector3(look_x, look_y, look_z)
-    # cube.look_at(target)
-    cube.look_at(Vector3(2*math.pi,2*math.pi,2*math.pi))
+    camera_x = math.sin(t/20)
+    camera_y = 0  # math.cos(t/20)
+    camera_z = math.cos(t/10)
 
-    # tetrahedron.look_at(target)
-    # octahedron.look_at(target)
-    # dodecahedron.look_at(target)
+    target = 100*Vector3(look_x, look_y, look_z)
+    cube.look_at(target)
+    tetrahedron.look_at(target)
+    octahedron.look_at(target)
+    dodecahedron.look_at(target)
 
-    # camera.position = target
-    # camera.look_at(Vector3(0,0,0))
+    camera.position = 25*Vector3(camera_x, camera_y, camera_z)
+    # camera.position = 10*target
+    camera.look_at(Vector3(0,0,0))
     events = sdl2.ext.get_events()
     for event in events:
         if event.type == sdl2.SDL_KEYDOWN:

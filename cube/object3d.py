@@ -3,7 +3,7 @@ from datetime import datetime
 import numpy as np
 
 from transformations import rotation_matrix, scale_matrix, translation_matrix
-from vector import Vector3
+from vector import Vector3, ZeroVectorError
 
 
 class Object3D:
@@ -54,14 +54,23 @@ class Object3D:
         """ aims camera at target, with specified up vector, or world up.
         Does nothing if target is coincident """
 
+        if target == self.position:
+            raise Exception("can't look at self")
+
         z_axis = (target - self.position).normalize()
+
 
         if up:
             up = up.normalize()
         else:
             up = Vector3(0, 1, 0)
 
-        x_axis = -up.cross(z_axis)
+        try:
+            x_axis = -up.cross(z_axis).normalize()
+        except ZeroVectorError:
+            left = Vector3(-1, 0, 0)
+            x_axis = left.cross(z_axis).normalize()
+
         y_axis = -z_axis.cross(x_axis)
 
         self._rotation_matrix = np.matrix([

@@ -1,6 +1,9 @@
 import math
 
 
+class ZeroVectorError(Exception): pass
+
+
 class Vector3:
 
     def __init__(self, x=0, y=0, z=0):
@@ -71,5 +74,5 @@ class Vector3:
 
         length = self.length()
         if length == 0:
-            raise Exception("can't normalize 0 vector")
+            raise ZeroVectorError("can't normalize 0 vector")
         return Vector3(self.x / length, self.y / length, self.z / length)
