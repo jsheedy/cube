@@ -36,7 +36,7 @@ class Cube(Object3D):
             (2, 6),
             (3, 7),
         )
-        self.vertices = self.to_homogenous_coords(vertices)
+        self.vertices = self.to_homogenous_coords(vertices / 2)
 
 
 class Tetrahedron(Object3D):
@@ -58,7 +58,7 @@ class Tetrahedron(Object3D):
             (0, 2),
             (0, 3),
         )
-        self.vertices = self.to_homogenous_coords(vertices)
+        self.vertices = self.to_homogenous_coords(vertices / 2)
 
 
 class Octahedron(Object3D):
@@ -90,7 +90,7 @@ class Octahedron(Object3D):
             (3, 4),
             (3, 5),
         )
-        self.vertices = self.to_homogenous_coords(vertices)
+        self.vertices = self.to_homogenous_coords(vertices / 2)
 
 
 class Dodecahedron(Object3D):
@@ -178,4 +178,4 @@ class Dodecahedron(Object3D):
             (17, 18),
             (19, 16)
         )
-        self.vertices = self.to_homogenous_coords(vertices)
+        self.vertices = self.to_homogenous_coords(vertices / (2*phi))

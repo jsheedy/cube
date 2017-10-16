@@ -45,11 +45,11 @@ for t in itertools.count():
 
     look_x = math.sin(t/20)
     look_y = math.cos(t/20)
-    look_z = 0  # math.cos(t/20)
+    look_z = math.cos(t/200)
 
     camera_x = math.sin(t/20)
     camera_y = 0  # math.cos(t/20)
-    camera_z = math.cos(t/10)
+    camera_z = math.cos(t/20)
 
     target = 100*Vector3(look_x, look_y, look_z)
     cube.look_at(target)
@@ -57,7 +57,7 @@ for t in itertools.count():
     octahedron.look_at(target)
     dodecahedron.look_at(target)
 
-    camera.position = 25*Vector3(camera_x, camera_y, camera_z)
+    # camera.position = 25*Vector3(camera_x, camera_y, camera_z)
     # camera.position = 10*target
     camera.look_at(Vector3(0,0,0))
     events = sdl2.ext.get_events()
