@@ -3,7 +3,6 @@ import numpy as np
 
 from vector import Vector3
 
-
 def rotation_matrix(rotation=None):
     r = rotation or Vector3()
     rot_x = np.matrix([
@@ -29,7 +28,6 @@ def rotation_matrix(rotation=None):
 
     return rot_z * rot_x * rot_y
 
-
 def scale_matrix(scale=None):
 
     s = scale or Vector3.unity()
@@ -40,7 +38,6 @@ def scale_matrix(scale=None):
         [0, 0, s.z, 0],
         [0, 0, 0, 1]
     ],dtype=np.float64)
-
 
 def translation_matrix(t=None):
     t = t or Vector3()

@@ -97,36 +97,48 @@ class SDLRenderer(Renderer):
         points_int = points.astype(np.int32)
         return points_int
 
+    def combine_vertices(self, vertices):
+        pass
+
+    def draw_points(self, renderer, points, color=0xff00ff00):
+        circle = sdlgfx.filledCircleColor
+        for x, y in points:
+            circle(renderer, x, y, 2, color)
+
+    def draw_edges(self, renderer, points, edges, color=0xff00ff00):
+        line = sdlgfx.lineColor
+        # line = sdlgfx.aalineColor
+        for p1, p2 in edges:
+            x1, y1 = points[p1]
+            x2, y2 = points[p2]
+            line(renderer, x1, y1, x2, y2, color)
+
     def render(self, hud, scene, clear=True, axes=False):
 
         self.frame += 1
         context = self.context
         if clear:
             context.clear(0)
-        sdlgfx_green = 0xff00ff00  # 0xff << 16 + 0xff  # RGBA
-        circle = sdlgfx.filledCircleColor
-        line = sdlgfx.aalineColor
         renderer = context.sdlrenderer
 
+        vertices = []
+        edges = []
+        n_points = 0
         for name, obj in scene.objects.items():
             obj.update()
-            points = self.vertices_to_screen(scene, obj.transformed_vertices)
-            if points is None:
-                return
-            n_points = points.shape[1]
-            for i in range(n_points):
-                x1 = points[0, i]
-                y1 = points[1, i]
-                circle(renderer, x1, y1, 3, sdlgfx_green)
+            obj_vertices = obj.transformed_vertices
+            vertices.append(obj_vertices)
+            # increment edge index
+            obj_edges = [((edge[0]+n_points), (edge[1] + n_points)) for edge in obj.edges]
+            edges.extend(obj_edges)
+            n_points += obj_vertices.shape[1]
 
-            for p1, p2 in obj.edges:
-                x1 = points[0, p1]
-                y1 = points[1, p1]
+        vertices_matrix = np.hstack(vertices)
+        points = self.vertices_to_screen(scene, vertices_matrix)
 
-                x2 = points[0, p2]
-                y2 = points[1, p2]
-
-                line(renderer, x1, y1, x2, y2, sdlgfx_green)
+        points_list = points.T.tolist()
+        self.draw_points(renderer, points_list)
+        self.draw_edges(renderer, points_list, edges)
 
         if axes:
             self.draw_axes(scene)
