@@ -87,6 +87,8 @@ class SDLRenderer(Renderer):
         transformed_vertices = scene.main_camera.R.I * scene.main_camera.T.I * vertices
         # mask = (vertices[2, :] > 0).A[0]
         # forward_vertices = vertices[:, mask]
+        # if np.any(transformed_vertices[2, :] < 0):
+        #     return
         points = camera_matrix * transformed_vertices
 
         # perspective
@@ -95,23 +97,27 @@ class SDLRenderer(Renderer):
         points_int = points.astype(np.int32)
         return points_int
 
-    def render(self, hud, scene, clear=True):
+    def render(self, hud, scene, clear=True, axes=False):
 
         self.frame += 1
         context = self.context
         if clear:
             context.clear(0)
         sdlgfx_green = 0xff00ff00  # 0xff << 16 + 0xff  # RGBA
+        circle = sdlgfx.filledCircleColor
+        line = sdlgfx.aalineColor
+        renderer = context.sdlrenderer
+
         for name, obj in scene.objects.items():
             obj.update()
             points = self.vertices_to_screen(scene, obj.transformed_vertices)
-            logger.debug(f"rendering {name}")
+            if points is None:
+                return
             n_points = points.shape[1]
             for i in range(n_points):
                 x1 = points[0, i]
                 y1 = points[1, i]
-                logger.debug(f"rendering {(x1,y1)}")
-                sdlgfx.filledCircleColor(context.sdlrenderer, x1, y1, 3, sdlgfx_green)
+                circle(renderer, x1, y1, 3, sdlgfx_green)
 
             for p1, p2 in obj.edges:
                 x1 = points[0, p1]
@@ -120,9 +126,10 @@ class SDLRenderer(Renderer):
                 x2 = points[0, p2]
                 y2 = points[1, p2]
 
-                sdlgfx.aalineColor(context.sdlrenderer, x1, y1, x2, y2, sdlgfx_green)
+                line(renderer, x1, y1, x2, y2, sdlgfx_green)
 
-        self.draw_axes(scene)
+        if axes:
+            self.draw_axes(scene)
         context.present()
         self.window.refresh()
 
