@@ -105,11 +105,11 @@ int main()
         "}\n\0";
 
     const char *greenFragmentShaderSource = "#version 330 core\n"
-        "in vertexColor;"
+        "uniform vec4 vertexColor;"
         "out vec4 FragColor;\n"
         "void main()\n"
         "{\n"
-        "    FragColor = vec4(0.0f, 1.0f, 0.0f, 1.0f);\n"
+        "    FragColor = vertexColor;\n"
         "}\n\0";
 
     const char *whiteFragmentShaderSource = "#version 330 core\n"
@@ -174,6 +174,7 @@ int main()
     glDeleteShader(greenFragmentShader);
     glDeleteShader(whiteFragmentShader);
 
+
     int t = 0;
     while(!glfwWindowShouldClose(window))
     {
@@ -181,6 +182,12 @@ int main()
         if (t % 50 == 0)
             std::cout << t << std::endl;
         processInput(window);
+
+        float timeValue = glfwGetTime();
+        float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
+        int vertexColorLocation = glGetUniformLocation(greenShaderProgram, "vertexColor");
+        glUseProgram(greenShaderProgram);
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 
         // float r = (1 + std::sin(t/10.0f)) / 2.0f;
         // float g = (1 + std::cos(t/200.0f)+1) / 2.0f;
