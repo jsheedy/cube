@@ -107,81 +107,83 @@ int main()
         "        vec2(12.9898,78.233)))*"
         "        43758.5453123);"
         "}"
+
         "void main()\n"
         "{\n"
         "  gl_Position = vec4(aPos, 1.0f);\n"
         " vertexColor = aColor;\n"
         "}\n\0";
 
-    const char *greenFragmentShaderSource = "#version 330 core\n"
-        "in vec3 vertexColor;"
-        "out vec4 FragColor;\n"
-        "void main()\n"
-        "{\n"
-        "    FragColor = vec4(vertexColor, 1.0f);\n"
-        "}\n\0";
+    // const char *greenFragmentShaderSource = "#version 330 core\n"
+    //     "in vec3 vertexColor;"
+    //     "out vec4 FragColor;\n"
+    //     "void main()\n"
+    //     "{\n"
+    //     "    FragColor = vec4(vertexColor, 1.0f);\n"
+    //     "}\n\0";
 
-    const char *whiteFragmentShaderSource = "#version 330 core\n"
-        "in vec4 gl_FragCoord;"
-        "in vec3 vertexColor;"
-        "out vec4 FragColor;\n"
-        "void main()\n"
-        "{\n"
-        "    FragColor = vec4(vertexColor, 1.0f);\n"
-        "}\n\0";
+    // const char *whiteFragmentShaderSource = "#version 330 core\n"
+    //     "in vec4 gl_FragCoord;"
+    //     "in vec3 vertexColor;"
+    //     "out vec4 FragColor;\n"
+    //     "void main()\n"
+    //     "{\n"
+    //     "    FragColor = vec4(vertexColor, 1.0f);\n"
+    //     "}\n\0";
 
     // "    FragColor = vec4(gl_FragCoord.x /800.0f, gl_FragCoord.y /600.0f, 0.0f, 1.0f);\n"
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
-    int  success;
-    char infoLog[512];
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-    if(!success)
-    {
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
-    }
+    // glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+    // glCompileShader(vertexShader);
+    // int  success;
+    // char infoLog[512];
+    // glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
+    // if(!success)
+    // {
+    //     glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+    //     std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+    // }
+    Shader shader("shaders/hello.vs", "shaders/hello.fs");
 
-    unsigned int greenFragmentShader;
-    greenFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(greenFragmentShader, 1, &greenFragmentShaderSource, NULL);
-    glCompileShader(greenFragmentShader);
+    // unsigned int greenFragmentShader;
+    // greenFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    // glShaderSource(greenFragmentShader, 1, &greenFragmentShaderSource, NULL);
+    // glCompileShader(greenFragmentShader);
 
-    unsigned int whiteFragmentShader;
-    whiteFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(whiteFragmentShader, 1, &whiteFragmentShaderSource, NULL);
-    glCompileShader(whiteFragmentShader);
+    // unsigned int whiteFragmentShader;
+    // whiteFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    // glShaderSource(whiteFragmentShader, 1, &whiteFragmentShaderSource, NULL);
+    // glCompileShader(whiteFragmentShader);
 
-    glGetProgramiv(whiteFragmentShader, GL_LINK_STATUS, &success);
-    if(!success) {
-        glGetProgramInfoLog(whiteFragmentShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER LINK FAILED\n" << infoLog << std::endl;
+    // glGetProgramiv(whiteFragmentShader, GL_LINK_STATUS, &success);
+    // if(!success) {
+    //     glGetProgramInfoLog(whiteFragmentShader, 512, NULL, infoLog);
+    //     std::cout << "ERROR::SHADER LINK FAILED\n" << infoLog << std::endl;
 
-    }
-    unsigned int greenShaderProgram;
-    greenShaderProgram = glCreateProgram();
-    glAttachShader(greenShaderProgram, vertexShader);
-    glAttachShader(greenShaderProgram, greenFragmentShader);
-    glLinkProgram(greenShaderProgram);
+    // }
+    // unsigned int greenShaderProgram;
+    // greenShaderProgram = glCreateProgram();
+    // glAttachShader(greenShaderProgram, vertexShader);
+    // glAttachShader(greenShaderProgram, greenFragmentShader);
+    // glLinkProgram(greenShaderProgram);
 
-    unsigned int whiteShaderProgram;
-    whiteShaderProgram = glCreateProgram();
-    glAttachShader(whiteShaderProgram, vertexShader);
-    glAttachShader(whiteShaderProgram, whiteFragmentShader);
-    glLinkProgram(whiteShaderProgram);
+    // unsigned int whiteShaderProgram;
+    // whiteShaderProgram = glCreateProgram();
+    // glAttachShader(whiteShaderProgram, vertexShader);
+    // glAttachShader(whiteShaderProgram, whiteFragmentShader);
+    // glLinkProgram(whiteShaderProgram);
 
 
-    glGetProgramiv(whiteShaderProgram, GL_LINK_STATUS, &success);
-    if(!success) {
-        glGetProgramInfoLog(whiteShaderProgram, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER LINK FAILED\n" << infoLog << std::endl;
+    // glGetProgramiv(whiteShaderProgram, GL_LINK_STATUS, &success);
+    // if(!success) {
+    //     glGetProgramInfoLog(whiteShaderProgram, 512, NULL, infoLog);
+    //     std::cout << "ERROR::SHADER LINK FAILED\n" << infoLog << std::endl;
 
-    }
+    // }
 
-    glUseProgram(whiteShaderProgram);
-    glDeleteShader(vertexShader);
-    glDeleteShader(greenFragmentShader);
-    glDeleteShader(whiteFragmentShader);
+    // glUseProgram(whiteShaderProgram);
+    // glDeleteShader(vertexShader);
+    // glDeleteShader(greenFragmentShader);
+    // glDeleteShader(whiteFragmentShader);
 
 
     int t = 0;
@@ -193,10 +195,10 @@ int main()
         processInput(window);
 
         float timeValue = glfwGetTime();
-        float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-        int vertexColorLocation = glGetUniformLocation(greenShaderProgram, "vertexColor");
-        glUseProgram(greenShaderProgram);
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        float greenValue = (sin(timeValue*30) / 2.0f) + 0.5f;
+        // int vertexColorLocation = glGetUniformLocation(greenShaderProgram, "vertexColor");
+        // glUseProgram(greenShaderProgram);
+        // glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 
         // float r = (1 + std::sin(t/10.0f)) / 2.0f;
         // float g = (1 + std::cos(t/200.0f)+1) / 2.0f;
@@ -205,20 +207,23 @@ int main()
         glClearColor(r, g, b, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glUseProgram(greenShaderProgram);
+        shader.use();
+        shader.setFloat("alpha", greenValue);
+
+        // glUseProgram(greenShaderProgram);
         // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         // or fill: glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
-        glUseProgram(whiteShaderProgram);
+        // glUseProgram(whiteShaderProgram);
         // draw EBO object (Element Buffer Object)
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+        // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+        // glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
 
 
-        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void *)7);
-        glBindVertexArray(0);
+        // glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void *)7);
+        // glBindVertexArray(0);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
