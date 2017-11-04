@@ -195,7 +195,7 @@ int main()
         processInput(window);
 
         float timeValue = glfwGetTime();
-        float greenValue = (sin(timeValue*30) / 2.0f) + 0.5f;
+        float greenValue = (sin(timeValue*1.5f) / 2.0f) + 0.5f;
         // int vertexColorLocation = glGetUniformLocation(greenShaderProgram, "vertexColor");
         // glUseProgram(greenShaderProgram);
         // glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
@@ -208,6 +208,7 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 
         shader.use();
+        shader.setFloat("xLoc", greenValue);
         shader.setFloat("alpha", greenValue);
 
         // glUseProgram(greenShaderProgram);
