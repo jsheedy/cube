@@ -18,16 +18,77 @@ using std::endl;
 int width = 800;
 int height = 600;
 
+glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  3.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
+
+float deltaTime = 0.0f; // Time between current frame and last frame
+float lastFrame = 0.0f; // Time of last frame
+
+float lastX = 400;
+float lastY = 300;
+bool firstMouse = true;
+float yaw=0.0f;
+float pitch = 0.0f;
+
 void framebuffer_size_callback(GLFWwindow* window, int _width, int _height)
 {
     width = _width;
     height = _height;
     glViewport(0, 0, width, height);
 }
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+    if(firstMouse)
+    {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+
+    float xoffset = xpos - lastX;
+    float yoffset = lastY - ypos;
+    lastX = xpos;
+    lastY = ypos;
+
+    float sensitivity = 0.05;
+    xoffset *= sensitivity;
+    yoffset *= sensitivity;
+
+    yaw   += xoffset;
+    pitch += yoffset;
+
+    if(pitch > 89.0f)
+        pitch = 89.0f;
+    if(pitch < -89.0f)
+        pitch = -89.0f;
+
+    glm::vec3 front;
+    front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    front.y = sin(glm::radians(pitch));
+    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    cameraFront = glm::normalize(front);
+}
+
 void processInput(GLFWwindow *window)
 {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+
+    float cameraSpeed = 5.5f * deltaTime;
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        cameraPos += cameraSpeed * cameraFront;
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        cameraPos -= cameraSpeed * cameraFront;
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+        cameraPos += cameraSpeed * cameraUp;
+    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        cameraPos -= cameraSpeed * cameraUp;
 }
 
 unsigned int loadTexture(const char* fname, const unsigned int imageFormat) {
@@ -86,8 +147,11 @@ int main()
         return -1;
     }
     glfwMakeContextCurrent(window);
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);
+
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
@@ -151,14 +215,13 @@ int main()
     };
 
     std::vector<glm::vec3> cubePositions;
-    for (int x=-20; x<20; x+=2) {
-        for (int y=-20; y<20; y+=2) {
-            for (int z=-100; z<-2; z+=4) {
+    for (int x=-25; x<25; x+=5) {
+        for (int y=-25; y<25; y+=5) {
+            for (int z=-25; z<25; z+=5) {
                 cubePositions.push_back(glm::vec3(x,y,z));
             }
         }
     }
-
 
     // unsigned int texture1 = loadTexture("assets/lhcs-fatter.png", GL_RGB);
     // unsigned int texture1 = loadTexture("assets/ESO_-_Milky_Way.jpg", GL_RGB);
@@ -206,15 +269,18 @@ int main()
     int projectionLoc = glGetUniformLocation(shader.ID, "projection");
     int t = 0;
     glEnable(GL_DEPTH_TEST);
+
     while(!glfwWindowShouldClose(window))
     {
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
         t++;
         if (t % 50 == 0)
             std::cout << t << std::endl;
         processInput(window);
 
-        float timeValue = glfwGetTime();
-        float LFO = (sin(timeValue*1.10f) / 2.0f) + 0.5f;
+        float LFO = (sin(currentFrame*1.10f) / 2.0f) + 0.5f;
         float r = 0.0f; float g = 0.0f; float b = 0.0f;
         glClearColor(r, g, b, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -234,10 +300,13 @@ int main()
         model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
         model = glm::rotate(model, t/50.0f * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
+        // glm::mat4 view;
+        // // note that we're translating the scene in the reverse direction of where we want to move
+        // view = glm::rotate(view, glm::radians(t/5.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+        // view = glm::translate(view, glm::vec3(LFO, 0.0f, -3.0f + t/50.0f));
+
         glm::mat4 view;
-        // note that we're translating the scene in the reverse direction of where we want to move
-        view = glm::rotate(view, glm::radians(t/5.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-        view = glm::translate(view, glm::vec3(LFO, 0.0f, -3.0f + t/50.0f));
+        view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 
         glm::mat4 projection;
         projection = glm::perspective(glm::radians(45.0f), (float)width / height, 0.1f, 1000.0f);
@@ -261,7 +330,8 @@ int main()
           glm::mat4 model;
           model = glm::translate(model, cubePositions[i]);
           float angle = 20.0f * LFO * i/1000;
-          model = glm::rotate(model, glm::radians(angle + i), glm::vec3(1.0f, 0.3f, 0.5f));
+          float rot = 0.0f; // glm::radians(angle + i);
+          model = glm::rotate(model, rot, glm::vec3(1.0f, 0.3f, 0.5f));
           glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
           glDrawArrays(GL_TRIANGLES, 0, 36);
         }
