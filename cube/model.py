@@ -1,6 +1,6 @@
 import numpy as np
 
-from object3d import Object3D
+from .object3d import Object3D
 
 
 def points_to_matrix(points):
@@ -16,9 +16,9 @@ def points_to_matrix(points):
 class Model(Object3D):
 
     @classmethod
-    def load_ply(cls, fname, ground=True):
+    def load_ply(cls, fname, ground=True, position=None, scale=None, rotation=None):
 
-        obj = cls()
+        obj = cls(position=position, scale=scale, rotation=rotation)
 
         with open(fname) as f:
 
@@ -30,7 +30,7 @@ class Model(Object3D):
                 if "element face" in line:
                     n_faces = int(line.split()[2])
 
-            points = []
+            vertices = []
             obj.polys = []
             normals = []
             centers = []
@@ -38,7 +38,7 @@ class Model(Object3D):
             for i in range(n_vertices):
                 recs = f.readline().split()
                 p = list(map(float, recs[:3]))
-                points.append(p)
+                vertices.append(p)
 
             for i in range(n_faces):
                 recs = f.readline().split()
@@ -54,13 +54,13 @@ class Model(Object3D):
                     obj.polys.append(triangle1)
                     obj.polys.append(triangle2)
 
-            obj.points = points_to_matrix(points)
+            obj.vertices = points_to_matrix(vertices)
 
             if ground:
-                min_y = obj._points[1, :].min()
-                obj._points[1, :] -= min_y / 2
-            centers, normals = obj.centers_and_normals()
-            obj.normals = points_to_matrix(normals)
-            obj.centers = points_to_matrix(centers)
+                min_y = obj.vertices[1, :].min()
+                obj.vertices[1, :] -= min_y / 2
+            # centers, normals = obj.centers_and_normals()
+            # obj.normals = points_to_matrix(normals)
+            # obj.centers = points_to_matrix(centers)
 
             return obj

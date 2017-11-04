@@ -1,0 +1,1 @@
+class FX(): pass

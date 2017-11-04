@@ -1,7 +1,7 @@
 from math import sqrt
 import numpy as np
 
-from object3d import Object3D
+from .object3d import Object3D
 
 
 class Cube(Object3D):
@@ -19,6 +19,7 @@ class Cube(Object3D):
             [-1, -1, 1],
             [1, -1, 1]
         ], dtype=np.float64)
+        self.vertices = self.to_homogenous_coords(vertices / 2)
 
         self.edges = (
             (0, 1),
@@ -36,7 +37,21 @@ class Cube(Object3D):
             (2, 6),
             (3, 7),
         )
-        self.vertices = self.to_homogenous_coords(vertices / 2)
+
+        self.polys = (
+            (0, 1, 2),
+            (2, 3, 0),
+            (4, 7, 6),
+            (6, 5, 4),
+            (1, 5, 6),
+            (6, 2, 1),
+            (0, 3, 7),
+            (7, 4, 0),
+            (3, 2, 6),
+            (6, 7, 3),
+            (5, 1, 0),
+            (0, 4, 5),
+        )
 
 
 class Tetrahedron(Object3D):

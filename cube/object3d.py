@@ -2,13 +2,13 @@ from datetime import datetime
 
 import numpy as np
 
-from transformations import rotation_matrix, scale_matrix, translation_matrix
-from vector import Vector3, ZeroVectorError
+from .transformations import rotation_matrix, scale_matrix, translation_matrix
+from .vector import Vector3, ZeroVectorError
 
 
 class Object3D:
-    vertices = None
-    edges = None
+    vertices = ()
+    edges = ()
 
     def __init__(self, position=None, angular_velocity=None, velocity=None, scale=None, rotation=None):
         self._translation_matrix = translation_matrix(position or Vector3())
@@ -57,6 +57,9 @@ class Object3D:
     @property
     def transformed_vertices(self):
         return self.T * self.R * self.S * self.vertices
+
+    def set_scale(self, scale):
+        self._scale_matrix = scale_matrix(Vector3(scale, scale, scale))
 
     def look_at(self, target, up=None):
         """ aims camera at target, with specified up vector, or world up.

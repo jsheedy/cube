@@ -1,7 +1,7 @@
 from math import sin, cos
 import numpy as np
 
-from vector import Vector3
+from .vector import Vector3
 
 def rotation_matrix(rotation=None):
     r = rotation or Vector3()
