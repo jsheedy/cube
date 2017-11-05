@@ -15,3 +15,9 @@ hello-coordinate-systems: hello-coordinate-systems.cpp shaders/hello.vs shaders/
 
 hello-camera: hello-camera.cpp shaders/hello.vs shaders/hello.fs
 	g++ `pkg-config --cflags glfw3` -o hello-camera hello-camera.cpp glad.c  `pkg-config --static --libs glfw3` -I .
+
+the-cube: the-cube.cpp shaders/hello.vs shaders/hello.fs
+	g++ `pkg-config --cflags glfw3` -o the-cube the-cube.cpp glad.c  `pkg-config --static --libs glfw3` -I .
+
+hello-colors: hello-colors.cpp shaders/hello-colors.vs shaders/hello-colors.fs
+	g++ `pkg-config --cflags glfw3` -o hello-colors hello-colors.cpp glad.c  `pkg-config --static --libs glfw3` -I .
