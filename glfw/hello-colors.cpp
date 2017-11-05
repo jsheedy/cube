@@ -8,6 +8,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <vector>
 #include "shader.h"
+#include "camera.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -18,19 +19,14 @@ using std::endl;
 int width = 800;
 int height = 600;
 
-glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  8.0f);
-glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
-
 float deltaTime = 0.0f; // Time between current frame and last frame
 float lastFrame = 0.0f; // Time of last frame
 bool clearScreen = true;
-
-float lastX = 400;
-float lastY = 300;
 bool firstMouse = true;
-float yaw=0.0f;
-float pitch = 0.0f;
+float lastX = width / 2.0f;
+float lastY = height / 2.0f;
+
+Camera camera = Camera(glm::vec3(0.0f, 0.0f, 5.0f));
 
 void framebuffer_size_callback(GLFWwindow* window, int _width, int _height)
 {
@@ -39,9 +35,31 @@ void framebuffer_size_callback(GLFWwindow* window, int _width, int _height)
     glViewport(0, 0, width, height);
 }
 
+void processInput(GLFWwindow *window)
+{
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+
+    if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
+        clearScreen = !clearScreen;
+
+    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+        camera.ProcessKeyboard(UP, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        camera.ProcessKeyboard(DOWN, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+        camera.ProcessKeyboard(FORWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+        camera.ProcessKeyboard(BACKWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+        camera.ProcessKeyboard(LEFT, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+        camera.ProcessKeyboard(RIGHT, deltaTime);
+}
+
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
-    if(firstMouse)
+    if (firstMouse)
     {
         lastX = xpos;
         lastY = ypos;
@@ -49,91 +67,16 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     }
 
     float xoffset = xpos - lastX;
-    float yoffset = lastY - ypos;
+    float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
+
     lastX = xpos;
     lastY = ypos;
 
-    float sensitivity = 0.05;
-    xoffset *= sensitivity;
-    yoffset *= sensitivity;
-
-    yaw   += xoffset;
-    pitch += yoffset;
-
-    if(pitch > 89.0f)
-        pitch = 89.0f;
-    if(pitch < -89.0f)
-        pitch = -89.0f;
-
-    glm::vec3 front;
-    front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-    front.y = sin(glm::radians(pitch));
-    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-    cameraFront = glm::normalize(front);
+    camera.ProcessMouseMovement(xoffset, yoffset);
 }
 
-void processInput(GLFWwindow *window)
+GLFWwindow* init()
 {
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-
-    float cameraSpeed = 5.5f * deltaTime;
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        cameraPos += cameraSpeed * cameraFront;
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        cameraPos -= cameraSpeed * cameraFront;
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
-    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
-        cameraPos += cameraSpeed * cameraUp;
-    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
-        cameraPos -= cameraSpeed * cameraUp;
-    if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
-        clearScreen = !clearScreen;
-}
-
-unsigned int loadTexture(const char* fname, const unsigned int imageFormat) {
-
-    int width, height, nrChannels;
-    unsigned char *textureData;
-    unsigned int texture;
-
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    //hack for awesomeface.png
-    stbi_set_flip_vertically_on_load(imageFormat == GL_RGBA);
-    textureData = stbi_load(fname, &width, &height, &nrChannels, 0);
-    if (textureData)
-    {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, imageFormat, GL_UNSIGNED_BYTE, textureData);
-        glGenerateMipmap(GL_TEXTURE_2D);
-        cout << width << height << endl;
-    }
-    else
-    {
-        std::cout << "Failed to load texture" << std::endl;
-        return -1;
-    }
-    stbi_image_free(textureData);
-
-    // texture wrapping
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    // texture filtering
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // mipmap filtering
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    return texture;
-}
-
-int main()
-{
-    std::cout << "HELLO" << std::endl;
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -147,27 +90,24 @@ int main()
     {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
-        return -1;
+        return window;
     }
     glfwMakeContextCurrent(window);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    glfwSetCursorPosCallback(window, mouse_callback);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
-        return -1;
+        return window;
     }
+    return window;
+}
 
-    // float vertices[] = {
-    //     // positions          // colors           // texture coords
-    //      0.95f,  0.95f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
-    //      0.95f, -0.95f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
-    //     -0.95f, -0.95f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
-    //     -0.95f,  0.95f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left
-    // };
+int main()
+{
+    GLFWwindow* window = init();
     // cube
     float vertices[] = {
         -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
@@ -247,6 +187,8 @@ int main()
     int t = 0;
     glEnable(GL_DEPTH_TEST);
 
+    glfwSetCursorPosCallback(window, mouse_callback);
+
     while(!glfwWindowShouldClose(window))
     {
         float currentFrame = glfwGetTime();
@@ -255,6 +197,7 @@ int main()
         t++;
         if (t % 50 == 0)
             std::cout << t << std::endl;
+
         processInput(window);
 
         float LFO = (sin(currentFrame*1.10f) / 2.0f) + 0.5f;
@@ -268,13 +211,12 @@ int main()
         glm::vec3 lightPos(5.0f * sin(t/20.0f), 5.0*sin(t/30.0f), 5.0f * cos(t/20.0f));
 
         glm::mat4 view;
-        view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
-
+        view = camera.GetViewMatrix();
         glm::mat4 projection;
         projection = glm::perspective(glm::radians(45.0f), (float)width / height, 0.1f, 1000.0f);
 
         lightingShader.setVec3("lightPos", lightPos.x, lightPos.y, lightPos.z);
-        lightingShader.setVec3("viewPos", cameraPos.x, cameraPos.y, cameraPos.z);
+        lightingShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
 
         lampShader.use();
         glBindVertexArray(lightVAO);
@@ -302,12 +244,6 @@ int main()
         glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
         glDrawArrays(GL_TRIANGLES, 0, 36);
-
-        // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        // glDrawArrays(GL_TRIANGLES, 0, 36);
-        // or fill: glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-        // glBindVertexArray(VAO);
-        // glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
