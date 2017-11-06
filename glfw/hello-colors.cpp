@@ -178,6 +178,7 @@ int main()
 
     unsigned int diffuseMap = loadTexture("assets/container2.png", GL_RGBA);
     unsigned int specularMap = loadTexture("assets/container2_specular.png", GL_RGBA);
+    unsigned int emissionMap = loadTexture("assets/matrix.jpg", GL_RGB);
 
     Shader lightingShader("shaders/hello-colors.vs", "shaders/hello-colors.fs");
     Shader lampShader("shaders/lamp.vs", "shaders/lamp.fs");
@@ -194,6 +195,7 @@ int main()
 
     lightingShader.setInt("material.diffuse", 0);
     lightingShader.setInt("material.specular", 1);
+    lightingShader.setInt("material.emission", 2);
 
     int t = 0;
     glEnable(GL_DEPTH_TEST);
@@ -222,6 +224,8 @@ int main()
         glBindTexture(GL_TEXTURE_2D, diffuseMap);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, specularMap);
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, emissionMap);
 
         glm::vec3 lightPos(5.0f * sin(t/20.0f), 1.0f, 5.0f * cos(t/20.0f));
 
