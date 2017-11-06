@@ -1,3 +1,9 @@
+#ifndef TEXTURES_H
+#define TEXTURES_H
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 unsigned int loadTexture(const char* fname, const unsigned int imageFormat) {
 
     int width, height, nrChannels;
@@ -13,7 +19,7 @@ unsigned int loadTexture(const char* fname, const unsigned int imageFormat) {
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, imageFormat, GL_UNSIGNED_BYTE, textureData);
         glGenerateMipmap(GL_TEXTURE_2D);
-        cout << width << height << endl;
+        std::cout << width << height << std::endl;
     }
     else
     {
@@ -34,3 +40,4 @@ unsigned int loadTexture(const char* fname, const unsigned int imageFormat) {
 
     return texture;
 }
+#endif
