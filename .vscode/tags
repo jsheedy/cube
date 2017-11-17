@@ -1,0 +1,484 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Camera	../cube/camera.py	/^class Camera(Object3D):$/;"	kind:class	line:4
+Camera	../test/boring-old-cube.py	/^from cube.camera import Camera$/;"	kind:namespace	line:5
+Camera	../test/cube-field.py	/^from cube.camera import Camera$/;"	kind:namespace	line:7
+Camera	../test/cube-track.py	/^from cube.camera import Camera$/;"	kind:namespace	line:7
+Camera	../test/glow.py	/^from cube.camera import Camera$/;"	kind:namespace	line:5
+Camera	../test/lady.py	/^from cube.camera import Camera$/;"	kind:namespace	line:8
+Camera	../test/load-ply.py	/^from cube.camera import Camera$/;"	kind:namespace	line:8
+Camera	../test/main.py	/^from cube.camera import Camera$/;"	kind:namespace	line:7
+Cube	../cube/engine.py	/^from .objects import Cube$/;"	kind:namespace	line:6
+Cube	../cube/objects.py	/^class Cube(Object3D):$/;"	kind:class	line:7
+Cube	../test/boring-old-cube.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:8
+Cube	../test/cube-field.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+Cube	../test/cube-track.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+Cube	../test/glow.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:8
+Cube	../test/lady.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:12
+Cube	../test/load-ply.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:12
+Cube	../test/main.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+Dodecahedron	../cube/objects.py	/^class Dodecahedron(Object3D):$/;"	kind:class	line:111
+Dodecahedron	../test/boring-old-cube.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:8
+Dodecahedron	../test/cube-field.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+Dodecahedron	../test/cube-track.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+Dodecahedron	../test/glow.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:8
+Dodecahedron	../test/lady.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:12
+Dodecahedron	../test/load-ply.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:12
+Dodecahedron	../test/main.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+FBXElem	../experimental/parse_bin.py	/^FBXElem = namedtuple("FBXElem", ("id", "props", "props_type", "elems"))$/;"	kind:variable	line:42
+FX	../cube/fx/fx.py	/^class FX(): pass/;"	kind:class	line:1
+FX	../cube/fx/glow.py	/^from .fx import FX$/;"	kind:namespace	line:3
+GlowFX	../cube/fx/glow.py	/^class GlowFX(FX):$/;"	kind:class	line:6
+GlowFX	../test/glow.py	/^from cube.fx.glow import GlowFX$/;"	kind:namespace	line:14
+HEIGHT	../test/load-ply.py	/^HEIGHT = 770$/;"	kind:variable	line:21
+HUD	../cube/hud.py	/^class HUD:$/;"	kind:class	line:1
+HUD	../test/boring-old-cube.py	/^from cube.hud import HUD$/;"	kind:namespace	line:7
+HUD	../test/cube-field.py	/^from cube.hud import HUD$/;"	kind:namespace	line:9
+HUD	../test/cube-track.py	/^from cube.hud import HUD$/;"	kind:namespace	line:9
+HUD	../test/glow.py	/^from cube.hud import HUD$/;"	kind:namespace	line:7
+HUD	../test/lady.py	/^from cube.hud import HUD$/;"	kind:namespace	line:10
+HUD	../test/load-ply.py	/^from cube.hud import HUD$/;"	kind:namespace	line:10
+HUD	../test/main.py	/^from cube.hud import HUD$/;"	kind:namespace	line:9
+Image	../experimental/framebuffer/perlin.py	/^from PIL import Image$/;"	kind:namespace	line:5
+Model	../cube/model.py	/^class Model(Object3D):$/;"	kind:class	line:16
+Model	../test/lady.py	/^from cube.model import Model$/;"	kind:namespace	line:11
+Model	../test/load-ply.py	/^from cube.model import Model$/;"	kind:namespace	line:11
+Object3D	../cube/camera.py	/^from .object3d import Object3D$/;"	kind:namespace	line:1
+Object3D	../cube/engine.py	/^from .object3d import Object3D$/;"	kind:namespace	line:7
+Object3D	../cube/model.py	/^from .object3d import Object3D$/;"	kind:namespace	line:3
+Object3D	../cube/object3d.py	/^class Object3D:$/;"	kind:class	line:9
+Object3D	../cube/objects.py	/^from .object3d import Object3D$/;"	kind:namespace	line:4
+Octahedron	../cube/objects.py	/^class Octahedron(Object3D):$/;"	kind:class	line:79
+Octahedron	../test/boring-old-cube.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:8
+Octahedron	../test/cube-field.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+Octahedron	../test/cube-track.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+Octahedron	../test/glow.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:8
+Octahedron	../test/lady.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:12
+Octahedron	../test/load-ply.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:12
+Octahedron	../test/main.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+PerlinNoise	../experimental/framebuffer/perlin.py	/^class PerlinNoise(object):$/;"	kind:class	line:7
+Quaternion	../cube/quaternion.py	/^class Quaternion:$/;"	kind:class	line:1
+R	../cube/object3d.py	/^    def R(self):$/;"	kind:member	line:50
+Renderer	../cube/renderers/renderer.py	/^class Renderer(): pass$/;"	kind:class	line:1
+Renderer	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^class Renderer(): pass$/;"	kind:class	line:14
+Renderer	../cube/renderers/sdl_renderer.py	/^from .renderer import Renderer$/;"	kind:namespace	line:10
+S	../cube/object3d.py	/^    def S(self):$/;"	kind:member	line:54
+SDLRenderer	../cube/renderers/__init__.py	/^from .sdl_renderer import SDLRenderer/;"	kind:namespace	line:1
+SDLRenderer	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^class SDLRenderer(Renderer):$/;"	kind:class	line:17
+SDLRenderer	../cube/renderers/sdl_renderer.py	/^class SDLRenderer(Renderer):$/;"	kind:class	line:15
+SDLRenderer	../test/boring-old-cube.py	/^from cube.renderers import SDLRenderer$/;"	kind:namespace	line:9
+SDLRenderer	../test/cube-field.py	/^from cube.renderer import SDLRenderer$/;"	kind:namespace	line:11
+SDLRenderer	../test/cube-track.py	/^from cube.renderer import SDLRenderer$/;"	kind:namespace	line:11
+SDLRenderer	../test/glow.py	/^from cube.renderers import SDLRenderer$/;"	kind:namespace	line:9
+SDLRenderer	../test/lady.py	/^from cube.renderer import SDLRenderer$/;"	kind:namespace	line:13
+SDLRenderer	../test/load-ply.py	/^from cube.renderer import SDLRenderer$/;"	kind:namespace	line:13
+SDLRenderer	../test/main.py	/^from cube.renderer import SDLRenderer$/;"	kind:namespace	line:11
+Scene	../cube/engine.py	/^from .scene import Scene$/;"	kind:namespace	line:8
+Scene	../cube/scene.py	/^class Scene:$/;"	kind:class	line:2
+Scene	../test/boring-old-cube.py	/^from cube.scene import Scene$/;"	kind:namespace	line:10
+Scene	../test/cube-field.py	/^from cube.scene import Scene$/;"	kind:namespace	line:12
+Scene	../test/cube-track.py	/^from cube.scene import Scene$/;"	kind:namespace	line:12
+Scene	../test/glow.py	/^from cube.scene import Scene$/;"	kind:namespace	line:10
+Scene	../test/lady.py	/^from cube.scene import Scene$/;"	kind:namespace	line:14
+Scene	../test/load-ply.py	/^from cube.scene import Scene$/;"	kind:namespace	line:14
+Scene	../test/main.py	/^from cube.scene import Scene$/;"	kind:namespace	line:12
+T	../cube/object3d.py	/^    def T(self):$/;"	kind:member	line:46
+Tetrahedron	../cube/objects.py	/^class Tetrahedron(Object3D):$/;"	kind:class	line:57
+Tetrahedron	../test/boring-old-cube.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:8
+Tetrahedron	../test/cube-field.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+Tetrahedron	../test/cube-track.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+Tetrahedron	../test/glow.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:8
+Tetrahedron	../test/lady.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:12
+Tetrahedron	../test/load-ply.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:12
+Tetrahedron	../test/main.py	/^from cube.objects import Dodecahedron, Cube, Tetrahedron, Octahedron$/;"	kind:namespace	line:10
+Vector3	../cube/engine.py	/^from .vector import Vector3$/;"	kind:namespace	line:9
+Vector3	../cube/events.py	/^from .vector import Vector3$/;"	kind:namespace	line:3
+Vector3	../cube/object3d.py	/^from .vector import Vector3, ZeroVectorError$/;"	kind:namespace	line:6
+Vector3	../cube/transformations.py	/^from .vector import Vector3$/;"	kind:namespace	line:4
+Vector3	../cube/vector.py	/^class Vector3:$/;"	kind:class	line:7
+Vector3	../test/boring-old-cube.py	/^from cube.engine import Vector3$/;"	kind:namespace	line:6
+Vector3	../test/cube-field.py	/^from cube.engine import Vector3$/;"	kind:namespace	line:8
+Vector3	../test/cube-track.py	/^from cube.engine import Vector3$/;"	kind:namespace	line:8
+Vector3	../test/glow.py	/^from cube.engine import Vector3$/;"	kind:namespace	line:6
+Vector3	../test/lady.py	/^from cube.engine import Vector3$/;"	kind:namespace	line:9
+Vector3	../test/load-ply.py	/^from cube.engine import Vector3$/;"	kind:namespace	line:9
+Vector3	../test/main.py	/^from cube.engine import Vector3$/;"	kind:namespace	line:8
+WIDTH	../test/load-ply.py	/^WIDTH = 1350$/;"	kind:variable	line:20
+ZeroVectorError	../cube/object3d.py	/^from .vector import Vector3, ZeroVectorError$/;"	kind:namespace	line:6
+ZeroVectorError	../cube/vector.py	/^class ZeroVectorError(Exception): pass$/;"	kind:class	line:4
+_BLOCK_SENTINEL_DATA	../experimental/parse_bin.py	/^_BLOCK_SENTINEL_DATA = (b'\\0' * _BLOCK_SENTINEL_LENGTH)$/;"	kind:variable	line:38
+_BLOCK_SENTINEL_LENGTH	../experimental/parse_bin.py	/^_BLOCK_SENTINEL_LENGTH = 13$/;"	kind:variable	line:37
+_HEAD_MAGIC	../experimental/parse_bin.py	/^_HEAD_MAGIC = b'Kaydara FBX Binary\\x20\\x20\\x00\\x1a\\x00'$/;"	kind:variable	line:40
+_IS_BIG_ENDIAN	../experimental/parse_bin.py	/^_IS_BIG_ENDIAN = (__import__("sys").byteorder != 'little')$/;"	kind:variable	line:39
+__add__	../cube/vector.py	/^    def __add__(self, other):$/;"	kind:member	line:18
+__all__	../experimental/parse_bin.py	/^__all__ = ($/;"	kind:variable	line:24
+__eq__	../cube/vector.py	/^    def __eq__(self, other):$/;"	kind:member	line:25
+__init__	../cube/object3d.py	/^    def __init__(self, position=None, angular_velocity=None, velocity=None, scale=None, rotation=None):$/;"	kind:member	line:13
+__init__	../cube/objects.py	/^    def __init__(self, **kwargs):$/;"	kind:member	line:112
+__init__	../cube/objects.py	/^    def __init__(self, **kwargs):$/;"	kind:member	line:58
+__init__	../cube/objects.py	/^    def __init__(self, **kwargs):$/;"	kind:member	line:8
+__init__	../cube/objects.py	/^    def __init__(self, **kwargs):$/;"	kind:member	line:80
+__init__	../cube/quaternion.py	/^    def __init__(self, x=0, y=0, z=0, w=0):$/;"	kind:member	line:2
+__init__	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def __init__(self, width=800, height=600, f=2000, window_title="CUBE", delay_interval=10):$/;"	kind:member	line:18
+__init__	../cube/renderers/sdl_renderer.py	/^    def __init__(self, width=800, height=600, f=2000, window_title="CUBE", delay_interval=10):$/;"	kind:member	line:16
+__init__	../cube/scene.py	/^    def __init__(self):$/;"	kind:member	line:3
+__init__	../cube/vector.py	/^    def __init__(self, x=0, y=0, z=0):$/;"	kind:member	line:9
+__init__	../experimental/framebuffer/perlin.py	/^    def __init__(self, size=None, n=None):$/;"	kind:member	line:42
+__init__.py	../cube/__init__.py	1;"	kind:file	line:1
+__init__.py	../cube/fx/__init__.py	1;"	kind:file	line:1
+__init__.py	../cube/renderers/__init__.py	1;"	kind:file	line:1
+__init__.py	../experimental/framebuffer/__init__.py	1;"	kind:file	line:1
+__mul__	../cube/vector.py	/^    def __mul__(self, s):$/;"	kind:member	line:31
+__neg__	../cube/vector.py	/^    def __neg__(self):$/;"	kind:member	line:37
+__repr__	../cube/vector.py	/^    def __repr__(self):$/;"	kind:member	line:40
+__rmul__	../cube/vector.py	/^    def __rmul__(self, s):$/;"	kind:member	line:34
+__sub__	../cube/vector.py	/^    def __sub__(self, other):$/;"	kind:member	line:28
+abs	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+add_camera	../cube/scene.py	/^    def add_camera(self, name, camera):$/;"	kind:member	line:15
+add_object	../cube/scene.py	/^    def add_object(self, name, obj):$/;"	kind:member	line:8
+angle_between	../cube/vector.py	/^    def angle_between(self, other):$/;"	kind:member	line:65
+arange	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+array	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+array	../experimental/parse_bin.py	/^import array$/;"	kind:namespace	line:31
+author	../setup.py	/^    author='jsheedy',$/;"	kind:variable	line:16
+author_email	../setup.py	/^    author_email='joseph.sheedy@gmail.com',$/;"	kind:variable	line:17
+b	../experimental/framebuffer/vert.py	/^    b = random.randint(0,255)$/;"	kind:variable	line:22
+boring-old-cube.py	../test/boring-old-cube.py	1;"	kind:file	line:1
+bunnies	../test/load-ply.py	/^bunnies = []$/;"	kind:variable	line:31
+bunny	../test/load-ply.py	/^    bunny = Model.load_ply(fname)$/;"	kind:variable	line:33
+camera	../test/boring-old-cube.py	/^camera = Camera(position=Vector3(0,0,-5))$/;"	kind:variable	line:18
+camera	../test/cube-field.py	/^camera = Camera(position=Vector3(0,0,-70))$/;"	kind:variable	line:18
+camera	../test/cube-track.py	/^camera = Camera(position=Vector3(0,4,-20))$/;"	kind:variable	line:18
+camera	../test/glow.py	/^camera = Camera(position=Vector3(0,0,-5))$/;"	kind:variable	line:19
+camera	../test/lady.py	/^camera = Camera(position=Vector3(0,0,-70))$/;"	kind:variable	line:20
+camera	../test/load-ply.py	/^camera = Camera(position=Vector3(0,0,-1))$/;"	kind:variable	line:25
+camera	../test/main.py	/^camera = Camera(position=Vector3(0,0,-20))$/;"	kind:variable	line:18
+camera.py	../cube/camera.py	1;"	kind:file	line:1
+camera_matrix	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def camera_matrix(self):$/;"	kind:member	line:201
+camera_matrix	../cube/renderers/sdl_renderer.py	/^    def camera_matrix(self):$/;"	kind:member	line:179
+camera_x	../test/cube-field.py	/^    camera_x = math.sin(-t\/10)$/;"	kind:variable	line:42
+camera_x	../test/main.py	/^    camera_x = math.sin(t\/20)$/;"	kind:variable	line:50
+camera_y	../test/cube-field.py	/^    camera_y = 0.2 * math.cos(t\/20)$/;"	kind:variable	line:43
+camera_y	../test/main.py	/^    camera_y = 0  # math.cos(t\/20)$/;"	kind:variable	line:51
+camera_z	../test/cube-field.py	/^    camera_z = math.cos(-t\/10)$/;"	kind:variable	line:44
+camera_z	../test/main.py	/^    camera_z = math.cos(t\/20)$/;"	kind:variable	line:52
+classifiers	../setup.py	/^    classifiers=[$/;"	kind:variable	line:23
+color	../experimental/framebuffer/vert.py	/^    color = (r << 16) + (g << 8) + b$/;"	kind:variable	line:23
+color	../experimental/sdldrawlines.py	/^    color = sdl2.ext.Color(r=0, g=255, b=0, a=255)$/;"	kind:variable	line:29
+combine_vertices	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def combine_vertices(self, vertices):$/;"	kind:member	line:99
+combine_vertices	../cube/renderers/sdl_renderer.py	/^    def combine_vertices(self, vertices):$/;"	kind:member	line:97
+context	../experimental/sdldrawlines.py	/^context = sdl2.ext.Renderer(window)$/;"	kind:variable	line:14
+context	../experimental/sdlgfx.py	/^context = sdl2.ext.Renderer(window)$/;"	kind:variable	line:14
+context	../experimental/sdlrawdog.py	/^context = sdl2.ext.Renderer(window)$/;"	kind:variable	line:15
+cos	../cube/engine.py	/^from math import sin, cos$/;"	kind:namespace	line:2
+cos	../cube/transformations.py	/^from math import sin, cos$/;"	kind:namespace	line:1
+count	../experimental/sdlrawdog.py	/^    count = 5$/;"	kind:variable	line:34
+cross	../cube/vector.py	/^    def cross(self, other):$/;"	kind:member	line:55
+cube	../test/boring-old-cube.py	/^cube = Cube()$/;"	kind:variable	line:22
+cube	../test/cube-field.py	/^            cube = Cube(position=Vector3(i, j, k))$/;"	kind:variable	line:27
+cube	../test/cube-track.py	/^        cube = Cube(position=Vector3(0, 0, t\/5))$/;"	kind:variable	line:37
+cube	../test/glow.py	/^cube = Cube()$/;"	kind:variable	line:23
+cube	../test/main.py	/^cube = Cube(position=Vector3(2, 2, 0), scale=Vector3(1,1,1))$/;"	kind:variable	line:29
+cube-field.py	../test/cube-field.py	1;"	kind:file	line:1
+cube-track.py	../test/cube-track.py	1;"	kind:file	line:1
+cubes	../test/cube-field.py	/^cubes = []$/;"	kind:variable	line:22
+datetime	../cube/engine.py	/^from datetime import datetime$/;"	kind:namespace	line:1
+datetime	../cube/object3d.py	/^from datetime import datetime$/;"	kind:namespace	line:1
+delay	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def delay(self):$/;"	kind:member	line:212
+delay	../cube/renderers/sdl_renderer.py	/^    def delay(self):$/;"	kind:member	line:190
+description	../setup.py	/^    description=( 'Cube 3D Engine'),$/;"	kind:variable	line:18
+dodecahedron	../test/main.py	/^dodecahedron = Dodecahedron(position=Vector3(-2, 2, 0))$/;"	kind:variable	line:32
+dot	../cube/vector.py	/^    def dot(self, other):$/;"	kind:member	line:52
+dot	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+draw_axes	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def draw_axes(self, scene, length=1):$/;"	kind:member	line:48
+draw_axes	../cube/renderers/sdl_renderer.py	/^    def draw_axes(self, scene, length=1):$/;"	kind:member	line:46
+draw_edges	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def draw_edges(self, renderer, points, edges, color=0xff00ff00):$/;"	kind:member	line:108
+draw_edges	../cube/renderers/sdl_renderer.py	/^    def draw_edges(self, renderer, points, edges, color=0xff00ff00):$/;"	kind:member	line:106
+draw_hud	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def draw_hud(self, hud):$/;"	kind:member	line:74
+draw_hud	../cube/renderers/sdl_renderer.py	/^    def draw_hud(self, hud):$/;"	kind:member	line:72
+draw_polys	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def draw_polys(self, renderer, points, polys, color=0xff00ff00):$/;"	kind:member	line:116
+draw_polys	../cube/renderers/sdl_renderer.py	/^    def draw_polys(self, renderer, points, polys, color=0xff00ff00):$/;"	kind:member	line:114
+draw_test_grid	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def draw_test_grid(self, context):$/;"	kind:member	line:194
+draw_vertices	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def draw_vertices(self, renderer, points, color=0xff00ff00):$/;"	kind:member	line:102
+draw_vertices	../cube/renderers/sdl_renderer.py	/^    def draw_vertices(self, renderer, points, color=0xff00ff00):$/;"	kind:member	line:100
+drive_obj	../cube/hid.py	/^def drive_obj(obj):$/;"	kind:function	line:5
+drive_obj	../test/boring-old-cube.py	/^from cube.hid import drive_obj$/;"	kind:namespace	line:12
+drive_obj	../test/glow.py	/^from cube.hid import drive_obj$/;"	kind:namespace	line:12
+edges	../cube/object3d.py	/^    edges = ()$/;"	kind:variable	line:11
+engine.py	../cube/engine.py	1;"	kind:file	line:1
+events	../test/cube-track.py	/^    events = sdl2.ext.get_events()$/;"	kind:variable	line:45
+events	../test/lady.py	/^    events = sdl2.ext.get_events()$/;"	kind:variable	line:35
+events	../test/main.py	/^    events = sdl2.ext.get_events()$/;"	kind:variable	line:63
+events.py	../cube/events.py	1;"	kind:file	line:1
+ext	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^import sdl2.ext$/;"	kind:namespace	line:7
+ext	../cube/renderers/sdl_renderer.py	/^import sdl2.ext$/;"	kind:namespace	line:7
+ext	../experimental/framebuffer/plasma.py	/^import sdl2.ext$/;"	kind:namespace	line:5
+ext	../experimental/framebuffer/vert.py	/^import sdl2.ext$/;"	kind:namespace	line:4
+ext	../experimental/sdldrawlines.py	/^import sdl2.ext$/;"	kind:namespace	line:6
+ext	../experimental/sdlgfx.py	/^import sdl2.ext$/;"	kind:namespace	line:6
+ext	../experimental/sdlrawdog.py	/^import sdl2.ext$/;"	kind:namespace	line:6
+f	../experimental/load_fbx.py	/^f = '.\/velotron_arise_eecc.fbx'$/;"	kind:variable	line:3
+floor	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+fname	../test/lady.py	/^fname = os.path.join(os.path.dirname(__file__), 'data\/kscan3d-lady-ascii.ply')$/;"	kind:variable	line:24
+fname	../test/load-ply.py	/^fname = os.path.join(os.path.dirname(__file__), 'data\/bunny.ply')$/;"	kind:variable	line:29
+fname	../test/load-ply.py	/^fname = os.path.join(os.path.dirname(__file__), 'data\/teapot.ply')$/;"	kind:variable	line:38
+freq	../experimental/framebuffer/plasma.py	/^freq = 1$/;"	kind:variable	line:32
+fromfunction	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+fx.py	../cube/fx/fx.py	1;"	kind:file	line:1
+fxes	../test/glow.py	/^fxes = [GlowFX(),]$/;"	kind:variable	line:27
+g	../experimental/framebuffer/vert.py	/^    g = random.randint(0,255)$/;"	kind:variable	line:21
+getData	../experimental/framebuffer/perlin.py	/^    def getData(self, scale=32.0):$/;"	kind:member	line:30
+getImage	../experimental/framebuffer/perlin.py	/^    def getImage(self, scale=32.0):$/;"	kind:member	line:33
+glow.py	../cube/fx/glow.py	1;"	kind:file	line:1
+glow.py	../test/glow.py	1;"	kind:file	line:1
+h	../experimental/framebuffer/plasma.py	/^h = 800$/;"	kind:variable	line:10
+handle_events	../cube/events.py	/^def handle_events(camera, width, height):$/;"	kind:function	line:6
+handle_events	../test/load-ply.py	/^from cube.events import handle_events$/;"	kind:namespace	line:15
+height	../experimental/framebuffer/vert.py	/^height=600$/;"	kind:variable	line:9
+height	../experimental/sdldrawlines.py	/^height=600$/;"	kind:variable	line:10
+height	../experimental/sdlgfx.py	/^height=600$/;"	kind:variable	line:10
+height	../experimental/sdlrawdog.py	/^height=600$/;"	kind:variable	line:10
+hid.py	../cube/hid.py	1;"	kind:file	line:1
+hud	../test/boring-old-cube.py	/^hud = HUD()$/;"	kind:variable	line:24
+hud	../test/cube-field.py	/^hud = HUD()$/;"	kind:variable	line:32
+hud	../test/cube-track.py	/^hud = HUD()$/;"	kind:variable	line:24
+hud	../test/glow.py	/^hud = HUD()$/;"	kind:variable	line:25
+hud	../test/lady.py	/^hud = HUD()$/;"	kind:variable	line:29
+hud	../test/load-ply.py	/^hud = HUD()$/;"	kind:variable	line:45
+hud	../test/main.py	/^hud = HUD()$/;"	kind:variable	line:39
+hud.py	../cube/hud.py	1;"	kind:file	line:1
+hypot	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+indices	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+int32	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+int8	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+itertools	../test/boring-old-cube.py	/^import itertools$/;"	kind:namespace	line:1
+itertools	../test/cube-field.py	/^import itertools$/;"	kind:namespace	line:1
+itertools	../test/cube-track.py	/^import itertools$/;"	kind:namespace	line:1
+itertools	../test/glow.py	/^import itertools$/;"	kind:namespace	line:1
+itertools	../test/lady.py	/^import itertools$/;"	kind:namespace	line:1
+itertools	../test/load-ply.py	/^import itertools$/;"	kind:namespace	line:1
+itertools	../test/main.py	/^import itertools$/;"	kind:namespace	line:1
+ix	../experimental/framebuffer/plasma.py	/^ix = ix.astype(np.float32)$/;"	kind:variable	line:21
+iy	../experimental/framebuffer/plasma.py	/^iy = iy.astype(np.float32)$/;"	kind:variable	line:22
+lady	../test/lady.py	/^lady = Model.load_ply(fname)$/;"	kind:variable	line:25
+lady.py	../test/lady.py	1;"	kind:file	line:1
+length	../cube/vector.py	/^    def length(self):$/;"	kind:member	line:48
+lines	../experimental/sdldrawlines.py	/^    lines = (0, 0, 100, 100, 200, 100, 900, 400)$/;"	kind:variable	line:28
+load-ply.py	../test/load-ply.py	1;"	kind:file	line:1
+load_fbx.py	../experimental/load_fbx.py	1;"	kind:file	line:1
+load_ply	../cube/model.py	/^    def load_ply(cls, fname, ground=True, position=None, scale=None, rotation=None):$/;"	kind:member	line:19
+logger	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^logger = logging.getLogger(__name__)$/;"	kind:variable	line:11
+logger	../cube/renderers/sdl_renderer.py	/^logger = logging.getLogger(__name__)$/;"	kind:variable	line:12
+logging	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^import logging$/;"	kind:namespace	line:1
+logging	../cube/renderers/sdl_renderer.py	/^import logging$/;"	kind:namespace	line:1
+logging	../experimental/sdldrawlines.py	/^import logging$/;"	kind:namespace	line:1
+logging	../experimental/sdlgfx.py	/^import logging$/;"	kind:namespace	line:1
+logging	../experimental/sdlrawdog.py	/^import logging$/;"	kind:namespace	line:1
+logging	../test/cube-field.py	/^import logging$/;"	kind:namespace	line:2
+logging	../test/cube-track.py	/^import logging$/;"	kind:namespace	line:2
+logging	../test/lady.py	/^import logging$/;"	kind:namespace	line:2
+logging	../test/load-ply.py	/^import logging$/;"	kind:namespace	line:2
+logging	../test/main.py	/^import logging$/;"	kind:namespace	line:2
+look_at	../cube/object3d.py	/^    def look_at(self, target, up=None):$/;"	kind:member	line:64
+look_x	../test/cube-field.py	/^    look_x = 0  # math.cos(t\/20)$/;"	kind:variable	line:39
+look_x	../test/main.py	/^    look_x = math.sin(t\/20)$/;"	kind:variable	line:46
+look_y	../test/cube-field.py	/^    look_y = math.sin(t\/10)$/;"	kind:variable	line:38
+look_y	../test/main.py	/^    look_y = math.cos(t\/20)$/;"	kind:variable	line:47
+look_z	../test/cube-field.py	/^    look_z = math.cos(t\/10)$/;"	kind:variable	line:40
+look_z	../test/main.py	/^    look_z = math.cos(t\/200)$/;"	kind:variable	line:48
+main.py	../test/main.py	1;"	kind:file	line:1
+math	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^import math$/;"	kind:namespace	line:2
+math	../cube/renderers/sdl_renderer.py	/^import math$/;"	kind:namespace	line:2
+math	../cube/vector.py	/^import math$/;"	kind:namespace	line:1
+math	../experimental/sdldrawlines.py	/^import math$/;"	kind:namespace	line:2
+math	../experimental/sdlgfx.py	/^import math$/;"	kind:namespace	line:2
+math	../experimental/sdlrawdog.py	/^import math$/;"	kind:namespace	line:2
+math	../test/cube-field.py	/^import math$/;"	kind:namespace	line:3
+math	../test/cube-track.py	/^import math$/;"	kind:namespace	line:3
+math	../test/lady.py	/^import math$/;"	kind:namespace	line:3
+math	../test/load-ply.py	/^import math$/;"	kind:namespace	line:3
+math	../test/main.py	/^import math$/;"	kind:namespace	line:3
+model	../experimental/load_fbx.py	/^model = parse(f)$/;"	kind:variable	line:5
+model.py	../cube/model.py	1;"	kind:file	line:1
+n	../experimental/framebuffer/perlin.py	/^    n = PerlinNoise(size=(1, 128))$/;"	kind:variable	line:75
+n	../experimental/framebuffer/perlin.py	/^    n = PerlinNoise(size=(128, 128))$/;"	kind:variable	line:79
+n	../experimental/framebuffer/perlin.py	/^    n = PerlinNoise(size=(128, 128, 1))$/;"	kind:variable	line:85
+name	../setup.py	/^    name='cube-engine',$/;"	kind:variable	line:14
+namedtuple	../experimental/parse_bin.py	/^from collections import namedtuple$/;"	kind:namespace	line:41
+newaxis	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+noise	../experimental/framebuffer/perlin.py	/^    def noise(self, coords):$/;"	kind:member	line:9
+noise	../experimental/framebuffer/plasma.py	/^noise = noise_function(ix \/ 100, iy \/ 100)$/;"	kind:variable	line:30
+noise_function	../experimental/framebuffer/plasma.py	/^def noise_function(x, y, phase=0):$/;"	kind:function	line:24
+normalize	../cube/vector.py	/^    def normalize(self):$/;"	kind:member	line:71
+np	../cube/engine.py	/^import numpy as np$/;"	kind:namespace	line:4
+np	../cube/model.py	/^import numpy as np$/;"	kind:namespace	line:1
+np	../cube/object3d.py	/^import numpy as np$/;"	kind:namespace	line:3
+np	../cube/objects.py	/^import numpy as np$/;"	kind:namespace	line:2
+np	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^import numpy as np$/;"	kind:namespace	line:5
+np	../cube/renderers/sdl_renderer.py	/^import numpy as np$/;"	kind:namespace	line:5
+np	../cube/transformations.py	/^import numpy as np$/;"	kind:namespace	line:2
+np	../experimental/framebuffer/plasma.py	/^import numpy as np$/;"	kind:namespace	line:3
+np	../experimental/sdldrawlines.py	/^import numpy as np$/;"	kind:namespace	line:4
+np	../experimental/sdlgfx.py	/^import numpy as np$/;"	kind:namespace	line:4
+np	../experimental/sdlrawdog.py	/^import numpy as np$/;"	kind:namespace	line:4
+object3d.py	../cube/object3d.py	1;"	kind:file	line:1
+objects.py	../cube/objects.py	1;"	kind:file	line:1
+octahedron	../test/main.py	/^octahedron = Octahedron(position=Vector3(-2, -2, 0))$/;"	kind:variable	line:31
+ones	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+os	../test/lady.py	/^import os$/;"	kind:namespace	line:4
+os	../test/load-ply.py	/^import os$/;"	kind:namespace	line:4
+packages	../setup.py	/^    packages=[$/;"	kind:variable	line:20
+parse	../experimental/load_fbx.py	/^from parse_bin import parse$/;"	kind:namespace	line:1
+parse	../experimental/parse_bin.py	/^def parse(fn, use_namedtuple=True):$/;"	kind:function	line:148
+parse_bin.py	../experimental/parse_bin.py	1;"	kind:file	line:1
+parse_version	../experimental/parse_bin.py	/^def parse_version(fn):$/;"	kind:function	line:134
+perlin.py	../experimental/framebuffer/perlin.py	1;"	kind:file	line:1
+pixels	../experimental/framebuffer/plasma.py	/^pixels = sdl2.ext.pixels2d(surface).T$/;"	kind:variable	line:17
+pixels	../experimental/framebuffer/vert.py	/^pixels = sdl2.ext.pixels2d(surface)$/;"	kind:variable	line:16
+plasma.py	../experimental/framebuffer/plasma.py	1;"	kind:file	line:1
+platforms	../setup.py	/^    platforms='any',$/;"	kind:variable	line:19
+points	../experimental/sdlrawdog.py	/^    points = (100, 100, 200, 200,$/;"	kind:variable	line:32
+points_to_matrix	../cube/model.py	/^def points_to_matrix(points):$/;"	kind:function	line:6
+poly1d	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+position	../cube/object3d.py	/^    def position(self):$/;"	kind:member	line:38
+position	../cube/object3d.py	/^    def position(self, v):$/;"	kind:member	line:42
+prod	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+quaternion.py	../cube/quaternion.py	1;"	kind:file	line:1
+quit	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def quit(self):$/;"	kind:member	line:215
+quit	../cube/renderers/sdl_renderer.py	/^    def quit(self):$/;"	kind:member	line:193
+r	../experimental/framebuffer/vert.py	/^    r = random.randint(0,255)$/;"	kind:variable	line:20
+r	../experimental/sdldrawlines.py	/^    r = int(20 * (math.sin(t\/20) + 1))$/;"	kind:variable	line:22
+r	../experimental/sdlgfx.py	/^    r = int(20 * (math.sin(t\/20) + 1))$/;"	kind:variable	line:22
+random	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^import random$/;"	kind:namespace	line:3
+random	../cube/renderers/sdl_renderer.py	/^import random$/;"	kind:namespace	line:3
+random	../experimental/framebuffer/perlin.py	/^                   hypot, ones, prod, random, indices, newaxis, poly1d$/;"	kind:namespace	line:4
+random	../experimental/framebuffer/plasma.py	/^import random$/;"	kind:namespace	line:1
+random	../experimental/framebuffer/vert.py	/^import random$/;"	kind:namespace	line:1
+read_data_dict	../experimental/parse_bin.py	/^read_data_dict = {$/;"	kind:variable	line:80
+read_elem	../experimental/parse_bin.py	/^def read_elem(read, tell, use_namedtuple):$/;"	kind:function	line:98
+read_string_ubyte	../experimental/parse_bin.py	/^def read_string_ubyte(read):$/;"	kind:function	line:54
+read_ubyte	../experimental/parse_bin.py	/^def read_ubyte(read):$/;"	kind:function	line:50
+read_uint	../experimental/parse_bin.py	/^def read_uint(read):$/;"	kind:function	line:46
+remove_first_object	../cube/scene.py	/^    def remove_first_object(self):$/;"	kind:member	line:11
+render	../cube/fx/glow.py	/^    def render(self, renderer):$/;"	kind:member	line:8
+render	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def render(self, hud, scene, clear=True, axes=False, draw_vertices=True, draw_polys=True):$/;"	kind:member	line:154
+render	../cube/renderers/sdl_renderer.py	/^    def render(self, hud, scene, clear=True, axes=False, draw_vertices=True, draw_polys=True):$/;"	kind:member	line:139
+renderer	../test/boring-old-cube.py	/^renderer = SDLRenderer(width=1350, height=770, delay_interval=30)$/;"	kind:variable	line:25
+renderer	../test/cube-field.py	/^renderer = SDLRenderer(width=1350, height=770, delay_interval=30)$/;"	kind:variable	line:31
+renderer	../test/cube-track.py	/^renderer = SDLRenderer(width=1350, height=770, delay_interval=30)$/;"	kind:variable	line:23
+renderer	../test/glow.py	/^renderer = SDLRenderer(width=1350, height=770, delay_interval=30)$/;"	kind:variable	line:28
+renderer	../test/lady.py	/^renderer = SDLRenderer(width=1350, height=770, delay_interval=30)$/;"	kind:variable	line:28
+renderer	../test/load-ply.py	/^renderer = SDLRenderer(width=WIDTH, height=HEIGHT, delay_interval=30)$/;"	kind:variable	line:44
+renderer	../test/main.py	/^renderer = SDLRenderer(width=1350, height=770, delay_interval=50)$/;"	kind:variable	line:40
+renderer.py	../cube/renderers/renderer.py	1;"	kind:file	line:1
+rotation_matrix	../cube/object3d.py	/^from .transformations import rotation_matrix, scale_matrix, translation_matrix$/;"	kind:namespace	line:5
+rotation_matrix	../cube/transformations.py	/^def rotation_matrix(rotation=None):$/;"	kind:function	line:6
+rotation_matrix	../test/boring-old-cube.py	/^from cube.transformations import rotation_matrix$/;"	kind:namespace	line:13
+rotation_matrix	../test/glow.py	/^from cube.transformations import rotation_matrix$/;"	kind:namespace	line:13
+saveImage	../experimental/framebuffer/perlin.py	/^    def saveImage(self, fileName, scale=32.0):$/;"	kind:member	line:38
+scale_matrix	../cube/object3d.py	/^from .transformations import rotation_matrix, scale_matrix, translation_matrix$/;"	kind:namespace	line:5
+scale_matrix	../cube/transformations.py	/^def scale_matrix(scale=None):$/;"	kind:function	line:31
+scene	../test/boring-old-cube.py	/^scene = Scene()$/;"	kind:variable	line:16
+scene	../test/cube-field.py	/^scene = Scene()$/;"	kind:variable	line:16
+scene	../test/cube-track.py	/^scene = Scene()$/;"	kind:variable	line:16
+scene	../test/glow.py	/^scene = Scene()$/;"	kind:variable	line:17
+scene	../test/lady.py	/^scene = Scene()$/;"	kind:variable	line:18
+scene	../test/load-ply.py	/^scene = Scene()$/;"	kind:variable	line:23
+scene	../test/main.py	/^scene = Scene()$/;"	kind:variable	line:16
+scene.py	../cube/scene.py	1;"	kind:file	line:1
+screenshot	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def screenshot(self):$/;"	kind:member	line:38
+screenshot	../cube/renderers/sdl_renderer.py	/^    def screenshot(self):$/;"	kind:member	line:36
+sdl2	../cube/events.py	/^import sdl2$/;"	kind:namespace	line:1
+sdl2	../cube/fx/glow.py	/^import sdl2$/;"	kind:namespace	line:1
+sdl2	../cube/hid.py	/^import sdl2$/;"	kind:namespace	line:3
+sdl2	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^import sdl2$/;"	kind:namespace	line:6
+sdl2	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^import sdl2.ext$/;"	kind:namespace	line:7
+sdl2	../cube/renderers/sdl_renderer.py	/^import sdl2$/;"	kind:namespace	line:6
+sdl2	../cube/renderers/sdl_renderer.py	/^import sdl2.ext$/;"	kind:namespace	line:7
+sdl2	../experimental/framebuffer/plasma.py	/^import sdl2$/;"	kind:namespace	line:4
+sdl2	../experimental/framebuffer/plasma.py	/^import sdl2.ext$/;"	kind:namespace	line:5
+sdl2	../experimental/framebuffer/vert.py	/^import sdl2$/;"	kind:namespace	line:3
+sdl2	../experimental/framebuffer/vert.py	/^import sdl2.ext$/;"	kind:namespace	line:4
+sdl2	../experimental/sdldrawlines.py	/^import sdl2$/;"	kind:namespace	line:5
+sdl2	../experimental/sdldrawlines.py	/^import sdl2.ext$/;"	kind:namespace	line:6
+sdl2	../experimental/sdlgfx.py	/^import sdl2$/;"	kind:namespace	line:5
+sdl2	../experimental/sdlgfx.py	/^import sdl2.ext$/;"	kind:namespace	line:6
+sdl2	../experimental/sdlrawdog.py	/^import sdl2$/;"	kind:namespace	line:5
+sdl2	../experimental/sdlrawdog.py	/^import sdl2.ext$/;"	kind:namespace	line:6
+sdl2	../test/boring-old-cube.py	/^import sdl2$/;"	kind:namespace	line:3
+sdl2	../test/cube-field.py	/^import sdl2$/;"	kind:namespace	line:5
+sdl2	../test/cube-track.py	/^import sdl2$/;"	kind:namespace	line:5
+sdl2	../test/glow.py	/^import sdl2$/;"	kind:namespace	line:3
+sdl2	../test/lady.py	/^import sdl2$/;"	kind:namespace	line:6
+sdl2	../test/load-ply.py	/^import sdl2$/;"	kind:namespace	line:6
+sdl2	../test/main.py	/^import sdl2$/;"	kind:namespace	line:5
+sdl_glitch_color_wave_renderer.py	../cube/renderers/sdl_glitch_color_wave_renderer.py	1;"	kind:file	line:1
+sdl_renderer.py	../cube/renderers/sdl_renderer.py	1;"	kind:file	line:1
+sdldrawlines.py	../experimental/sdldrawlines.py	1;"	kind:file	line:1
+sdlgfx	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^from sdl2 import sdlgfx$/;"	kind:namespace	line:8
+sdlgfx	../cube/renderers/sdl_renderer.py	/^from sdl2 import sdlgfx$/;"	kind:namespace	line:8
+sdlgfx	../experimental/framebuffer/plasma.py	/^from sdl2 import sdlgfx$/;"	kind:namespace	line:6
+sdlgfx	../experimental/framebuffer/vert.py	/^from sdl2 import sdlgfx$/;"	kind:namespace	line:5
+sdlgfx	../experimental/sdldrawlines.py	/^from sdl2 import sdlgfx$/;"	kind:namespace	line:7
+sdlgfx	../experimental/sdlgfx.py	/^from sdl2 import sdlgfx$/;"	kind:namespace	line:7
+sdlgfx	../experimental/sdlrawdog.py	/^from sdl2 import sdlgfx$/;"	kind:namespace	line:7
+sdlgfx.py	../experimental/sdlgfx.py	1;"	kind:file	line:1
+sdlgfx_green	../experimental/sdldrawlines.py	/^sdlgfx_green = 0xFFFFFFFF  # 255 << 8$/;"	kind:variable	line:16
+sdlgfx_green	../experimental/sdlgfx.py	/^sdlgfx_green = 0xFFFFFFFF  # 255 << 8$/;"	kind:variable	line:16
+sdlgfx_green	../experimental/sdlrawdog.py	/^sdlgfx_green = 0xFFFFFFFF  # 255 << 8$/;"	kind:variable	line:17
+sdlrawdog.py	../experimental/sdlrawdog.py	1;"	kind:file	line:1
+set_scale	../cube/object3d.py	/^    def set_scale(self, scale):$/;"	kind:member	line:61
+setup	../setup.py	/^    from distutils.core import setup$/;"	kind:namespace	line:9
+setup	../setup.py	/^    from setuptools import setup$/;"	kind:namespace	line:4
+setup.py	../setup.py	1;"	kind:file	line:1
+sin	../cube/engine.py	/^from math import sin, cos$/;"	kind:namespace	line:2
+sin	../cube/transformations.py	/^from math import sin, cos$/;"	kind:namespace	line:1
+skip	../experimental/framebuffer/vert.py	/^    skip = random.randint(2,20)$/;"	kind:variable	line:19
+sqrt	../cube/objects.py	/^from math import sqrt$/;"	kind:namespace	line:1
+surface	../experimental/framebuffer/plasma.py	/^surface = window.get_surface()$/;"	kind:variable	line:15
+surface	../experimental/framebuffer/vert.py	/^surface = window.get_surface()$/;"	kind:variable	line:14
+t	../experimental/sdldrawlines.py	/^t=0$/;"	kind:variable	line:18
+t	../experimental/sdlgfx.py	/^t=0$/;"	kind:variable	line:18
+t	../experimental/sdlrawdog.py	/^t=0$/;"	kind:variable	line:19
+target	../test/cube-field.py	/^    target = 100*Vector3(look_x, look_y, look_z)$/;"	kind:variable	line:46
+target	../test/main.py	/^    target = 100*Vector3(look_x, look_y, look_z)$/;"	kind:variable	line:54
+teapot	../test/load-ply.py	/^teapot = Model.load_ply(fname, scale=Vector3(0.02, 0.02, 0.02))$/;"	kind:variable	line:39
+test_extras	../setup.py	/^    test_extras = {$/;"	kind:variable	line:5
+test_extras	../setup.py	/^    test_extras = {}$/;"	kind:variable	line:10
+tetrahedron	../test/main.py	/^tetrahedron = Tetrahedron(position=Vector3(2,-2, 0))$/;"	kind:variable	line:30
+to_homogenous_coords	../cube/object3d.py	/^    def to_homogenous_coords(self, vertices):$/;"	kind:member	line:34
+transformations	../test/load-ply.py	/^from cube import transformations$/;"	kind:namespace	line:16
+transformations.py	../cube/transformations.py	1;"	kind:file	line:1
+transformed_vertices	../cube/object3d.py	/^    def transformed_vertices(self):$/;"	kind:member	line:58
+translation_matrix	../cube/object3d.py	/^from .transformations import rotation_matrix, scale_matrix, translation_matrix$/;"	kind:namespace	line:5
+translation_matrix	../cube/transformations.py	/^def translation_matrix(t=None):$/;"	kind:function	line:42
+unity	../cube/vector.py	/^    def unity(cls):$/;"	kind:member	line:15
+unpack	../experimental/parse_bin.py	/^from struct import unpack$/;"	kind:namespace	line:30
+unpack_array	../experimental/parse_bin.py	/^def unpack_array(read, array_type, array_stride, array_byteswap):$/;"	kind:function	line:60
+update	../cube/object3d.py	/^    def update(self):$/;"	kind:member	line:21
+update_physics	../cube/object3d.py	/^    def update_physics(self):$/;"	kind:member	line:24
+vector.py	../cube/vector.py	1;"	kind:file	line:1
+version	../setup.py	/^    version='0.0.1',$/;"	kind:variable	line:15
+vert.py	../experimental/framebuffer/vert.py	1;"	kind:file	line:1
+vertices	../cube/object3d.py	/^    vertices = ()$/;"	kind:variable	line:10
+vertices_to_screen	../cube/renderers/sdl_glitch_color_wave_renderer.py	/^    def vertices_to_screen(self, scene, vertices):$/;"	kind:member	line:84
+vertices_to_screen	../cube/renderers/sdl_renderer.py	/^    def vertices_to_screen(self, scene, vertices):$/;"	kind:member	line:82
+w	../experimental/framebuffer/plasma.py	/^w = 1200$/;"	kind:variable	line:9
+width	../experimental/framebuffer/vert.py	/^width=800$/;"	kind:variable	line:8
+width	../experimental/sdldrawlines.py	/^width=800$/;"	kind:variable	line:9
+width	../experimental/sdlgfx.py	/^width=800$/;"	kind:variable	line:9
+width	../experimental/sdlrawdog.py	/^width=800$/;"	kind:variable	line:9
+window	../experimental/framebuffer/plasma.py	/^window = sdl2.ext.Window('window_title', size=(w, h))$/;"	kind:variable	line:12
+window	../experimental/framebuffer/vert.py	/^window = sdl2.ext.Window('window_title', size=(width, height))$/;"	kind:variable	line:11
+window	../experimental/sdldrawlines.py	/^window = sdl2.ext.Window('window_title', size=(width, height))$/;"	kind:variable	line:12
+window	../experimental/sdlgfx.py	/^window = sdl2.ext.Window('window_title', size=(width, height))$/;"	kind:variable	line:12
+window	../experimental/sdlrawdog.py	/^window = sdl2.ext.Window('window_title', size=(width, height))$/;"	kind:variable	line:12
+wx	../experimental/framebuffer/plasma.py	/^wx = 1\/50$/;"	kind:variable	line:33
+wy	../experimental/framebuffer/plasma.py	/^wy = 1\/53$/;"	kind:variable	line:34
+zero	../cube/quaternion.py	/^    def zero(cls):$/;"	kind:member	line:9
+zero	../cube/vector.py	/^    def zero(cls):$/;"	kind:member	line:44
+zlib	../experimental/parse_bin.py	/^import zlib$/;"	kind:namespace	line:32
